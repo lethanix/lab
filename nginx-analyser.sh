@@ -22,5 +22,9 @@ grep -E -o 'HTTP/1.1"[ ]*([0-9]{3})[ ]*' $LOG | awk '{print $2}' \
 	| sort | uniq -c | sort -nr | head -5 \
 	| awk '{printf "%d - %d requests\n", $2, $1}'
 
-
+######################################################
+echo
+echo Top 5 user agents:
+awk -F'"' '{print $6}' $LOG | sort | uniq -c | sort -nr | head -5 \
+	| awk '{count=$1; $1=""; printf "%s - %d requests\n", $0, count}'
 
