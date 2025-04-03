@@ -2,7 +2,27 @@
 #
 # Script that analyse nginx access logs
 
-LOG=nginx-access.log
+# ****************************
+# Verify input of the script
+# ****************************
+## Verify the number of arguments 
+if [ $# -eq 0 ] && [ $# -lt 2 ]; then
+    echo Missing argument: Log file is not provided $1 1>&2
+    exit 1
+elif [ $# -gt 1 ]; then
+    echo 'Too many arguments (+1): ' "('$#') => '$@'" 1>&2
+    exit 2
+fi
+
+## Verify if $1 argument is a file
+if [ ! -f $1 ]; then
+    echo Argument is not a file: $1 1>&2
+    exit 3
+else 
+    echo Analysing file $1
+fi
+
+LOG=$1
 
 ######################################################
 echo Top 5 IP addresses with the most requests:
