@@ -56,7 +56,7 @@ chmod +x nginx-analyser.sh
 
 3. Run the script
 ```bash
-./nginx-analyser.sh
+./nginx-analyser.sh nginx-access.log
 ```
 
 ---
