@@ -1,3 +1,6 @@
 [submodule "github"]
 	path = github
 	url = https://github.com/lethanix/github.git
+[submodule "k8s"]
+	path = k8s
+	url = https://github.com/lethanix/k8s
